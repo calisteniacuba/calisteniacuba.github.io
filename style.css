@@ -282,28 +282,83 @@ body {
     font-size: 0.85rem;
 }
 
-/*======================
-===.      EQUIPO 
-========================° */
+/* ============================================================ */
+/* EQUIPO - Secciones diferenciadas                              */
+/* ============================================================ */
 
+/* Contenedor de cada grupo (Desarrolladores / Entrenadores) */
+.team-group {
+    margin-bottom: 4rem;
+}
+
+.team-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Subtítulo de cada grupo */
+.team-subtitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #3d434d;
+    margin-bottom: 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.team-subtitle::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #d42e4b;
+    margin: 0.3rem auto 0;
+}
+
+/* Grid base para todos los equipos */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 2rem;
     justify-items: center;
+    align-items: center;
 }
 
-.trainer-grid
-{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 2rem;
-    justify-items: center;
+/* ===== DESARROLLADORES - Grid específico ===== */
+.developers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
+/* Si solo hay 1 desarrollador, que se centre */
+.developers-grid:has(.member:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+}
+
+/* ===== ENTRENADORES - Grid específico ===== */
+.trainers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Si solo hay 1 entrenador, que se centre */
+.trainers-grid:has(.member:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+}
+
+/* Si hay exactamente 2 entrenadores, que se centren en 2 columnas */
+.trainers-grid:has(.member:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 400px;
+}
+
+/* ===== MIEMBROS ===== */
 .member {
     text-align: center;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 160px;
 }
 
 /* Contenedor del avatar circular */
@@ -313,7 +368,7 @@ body {
     border-radius: 50%;
     background: #f5f6f8;
     border: 2px solid #e8eaed;
-    overflow: hidden;  /* Recorta la imagen para que sea circular */
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -331,8 +386,15 @@ body {
 .avatar img {
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Asegura que la imagen cubra todo el círculo sin deformarse */
+    object-fit: cover;
     display: block;
+}
+
+/* Placeholder para cuando no hay imagen */
+.avatar .placeholder {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d42e4b;
 }
 
 .name {
@@ -345,7 +407,7 @@ body {
     font-size: 0.8rem;
 }
 
-/*============================================================ */
+/* ============================================================ */
 /* EVENTOS - Tarjetas                                            */
 /* ============================================================ */
 .events-grid {
@@ -354,22 +416,11 @@ body {
     gap: 1.8rem;
 }
 
-/* Tarjetas normales (sin borde rojo) */
-.space-card {
-    background: #f5f6f8;
-    padding: 2rem 1.5rem;
-    border-radius: 20px;
-    border: 1px solid #e8eaed;  /* Borde gris claro */
-    text-align: center;
-    transition: all 0.25s ease;
-    position: relative;
-}
-
 .event-card {
     background: #f5f6f8;
     border-radius: 20px;
     padding: 1.8rem 1.8rem 1.5rem;
-    border: 1px solid #e8eaed;  /* Borde gris claro */
+    border: 1px solid #e8eaed;
     transition: all 0.25s ease;
     text-align: left;
     position: relative;
@@ -482,6 +533,39 @@ body {
 }
 
 /* ============================================================ */
+/* BADGES PARA EVENTOS */
+/* ============================================================ */
+.badge {
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.badge.abierto {
+    background: #2e8b57;
+    color: #fff;
+}
+
+.badge.confirmar {
+    background: #ffb800;
+    color: #1a1d23;
+}
+
+.badge.cupos {
+    background: #d42e4b;
+    color: #fff;
+}
+
+.badge.cerrado {
+    background: #9aa0a8;
+    color: #fff;
+}
+
+/* ============================================================ */
 /* FOOTER                                                        */
 /* ============================================================ */
 .footer {
@@ -520,6 +604,25 @@ body {
 /* ============================================================ */
 /* RESPONSIVE                                                    */
 /* ============================================================ */
+@media (max-width: 768px) {
+    .developers-grid,
+    .trainers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 400px;
+    }
+
+    .developers-grid:has(.member:only-child),
+    .trainers-grid:has(.member:only-child) {
+        grid-template-columns: 1fr;
+        max-width: 200px;
+    }
+
+    .trainers-grid:has(.member:nth-child(2):last-child) {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 350px;
+    }
+}
+
 @media (max-width: 600px) {
     .hero h2 {
         font-size: 2rem;
@@ -544,3 +647,16 @@ body {
         gap: 0.8rem;
     }
 }
+
+@media (max-width: 450px) {
+    .developers-grid,
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        max-width: 200px;
+    }
+
+    .trainers-grid:has(.member:nth-child(2):last-child) {
+        grid-template-columns: 1fr;
+        max-width: 200px;
+    }
+    }
