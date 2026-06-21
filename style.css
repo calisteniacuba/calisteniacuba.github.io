@@ -402,6 +402,132 @@ body {
     font-size: 1rem;
 }
 
+/* ============================================================ */
+/* EQUIPO - Secciones diferenciadas                              */
+/* ============================================================ */
+
+/* Contenedor de cada grupo (Desarrolladores / Entrenadores) */
+.team-group {
+    margin-bottom: 5rem;  /* Aumentado para separar bien los grupos */
+}
+
+.team-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Subtítulo de cada grupo */
+.team-subtitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #3d434d;
+    margin-bottom: 1.8rem;
+    position: relative;
+    display: inline-block;
+}
+
+.team-subtitle::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #d42e4b;
+    margin: 0.3rem auto 0;
+}
+
+/* Grid base para todos los equipos */
+.team-grid {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+}
+
+/* ===== DESARROLLADORES - Grid específico ===== */
+.developers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 500px;  /* Reducido para que quepa bien */
+    margin: 0 auto;
+}
+
+/* Si solo hay 1 desarrollador, que se centre */
+.developers-grid:has(.member:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+}
+
+/* Si hay exactamente 2 desarrolladores */
+.developers-grid:has(.member:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 350px;
+}
+
+/* ===== ENTRENADORES - Grid específico ===== */
+.trainers-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 700px;  /* Reducido para que quepan 3 columnas */
+    margin: 0 auto;
+}
+
+/* Si solo hay 1 entrenador, que se centre */
+.trainers-grid:has(.member:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+}
+
+/* Si hay exactamente 2 entrenadores, que se centren en 2 columnas */
+.trainers-grid:has(.member:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 350px;
+}
+
+/* ===== MIEMBROS ===== */
+.member {
+    text-align: center;
+    width: 100%;
+    max-width: 160px;
+}
+
+/* Contenedor del avatar circular */
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #f5f6f8;
+    border: 2px solid #e8eaed;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    border-color: #d42e4b;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(212, 46, 75, 0.15);
+}
+
+/* Imagen dentro del avatar */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Placeholder para cuando no hay imagen */
+.avatar .placeholder {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d42e4b;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
 .role {
     color: #9aa0a8;
     font-size: 0.8rem;
