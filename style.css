@@ -39,11 +39,6 @@ body {
     margin-top: -2px;
 }
 
-.subtitle
-{
-    padding-top: 14px;
-}
-
 .nav {
     margin-top: 1rem;
     display: flex;
@@ -282,9 +277,7 @@ body {
     font-size: 0.85rem;
 }
 
-/* ============================================================ */
-/* EQUIPO                                                        */
-/* ============================================================ */
+/* ===== EQUIPO ===== */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -296,19 +289,33 @@ body {
     text-align: center;
 }
 
+/* Contenedor del avatar circular */
 .avatar {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     background: #f5f6f8;
     border: 2px solid #e8eaed;
+    overflow: hidden;  /* Recorta la imagen para que sea circular */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #d42e4b;
     margin: 0 auto 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    border-color: #d42e4b;
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(212, 46, 75, 0.15);
+}
+
+/* Imagen dentro del avatar */
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Asegura que la imagen cubra todo el círculo sin deformarse */
+    display: block;
 }
 
 .name {
@@ -321,7 +328,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* ============================================================ */
+/*============================================================ */
 /* EVENTOS - Tarjetas                                            */
 /* ============================================================ */
 .events-grid {
