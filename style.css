@@ -30,7 +30,7 @@ body {
     font-weight: 700;
 }
 
-.header .subtitle {
+.header {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -42,6 +42,11 @@ body {
 .subtitle
 {
     padding-top: 14px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #9aa0a8;
+    font-weight: 600;
 }
 
 .nav {
