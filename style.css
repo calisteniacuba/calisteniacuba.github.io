@@ -152,7 +152,7 @@ body {
 }
 
 /* ============================================================ */
-/* ESPACIOS - Tarjetas sin borde rojo en el primero              */
+/* ESPACIOS*/
 /* ============================================================ */
 .section-description {
     color: #3d434d;
@@ -163,7 +163,8 @@ body {
 
 .spaces-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3,1fr);
+    /*repeat(auto-fit, minmax(260px, 1fr));*/
     gap: 1.8rem;
     margin-bottom: 2.5rem;
 }
@@ -467,16 +468,6 @@ body {
 .btn-event i {
     font-size: 0.7rem;
     margin-left: 4px;
-}
-
-/* ============================================================ */
-/* CONTACTO                                                      */
-/* ============================================================ */
-.contact-text {
-    max-width: 550px;
-    margin: 0 auto 1.8rem;
-    color: #3d434d;
-    font-size: 1.05rem;
 }
 
 /* ============================================================ */
