@@ -336,10 +336,20 @@ body {
 }
 
 /* ===== ENTRENADORES - Grid específico ===== */
+/* ===== ENTRENADORES - Grid específico ===== */
 .trainers-grid {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 800px;
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
     margin: 0 auto;
+}
+
+/* ===== MIEMBROS ===== */
+.member {
+    text-align: center;
+    width: 100%;
+    max-width: 180px; /* Aumentado para que los miembros sean más grandes */
 }
 
 /* Si solo hay 1 entrenador, que se centre */
