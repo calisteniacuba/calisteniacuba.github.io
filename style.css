@@ -287,6 +287,15 @@ body {
 ========================° */
 .team-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;  /* Centra horizontalmente */
+    align-items: center;    /* Centra verticalmente */
+}
+
+.trainer-grid
+{
+    display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 2rem;
     justify-items: center;
