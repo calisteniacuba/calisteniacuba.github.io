@@ -37,7 +37,12 @@ body {
     color: #9aa0a8;
     font-weight: 600;
     margin-top: -2px;
-    padding: 5px;
+}
+
+.subtitle
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .nav {
