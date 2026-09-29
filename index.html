@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Streetworkout & Calistenia · Cuba</title>
-    
+    <meta name="theme-color" content="#d42e4b" />
+
+    <title>Calistenia en Cuba · Asociación Nacional de Streetworkout</title>
+    <meta name="description" content="Asociación Nacional de Streetworkout y Calistenia de Cuba. Descubre espacios de entrenamiento, eventos y entrenadores en toda la isla." />
+
+    <!-- Open Graph (para WhatsApp, Telegram, Facebook) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CU" />
+    <meta property="og:site_name" content="Calistenia en Cuba" />
+    <meta property="og:title" content="Calistenia en Cuba · Asociación Nacional" />
+    <meta property="og:description" content="La calle es nuestro gimnasio. Espacios, eventos y entrenadores de streetworkout en Cuba." />
+    <meta property="og:image" content="https://tudominio.cu/img/og-cover.jpg" />
+    <meta property="og:url" content="https://tudominio.cu/" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Calistenia en Cuba · Asociación Nacional" />
+    <meta name="twitter:description" content="La calle es nuestro gimnasio." />
+    <meta name="twitter:image" content="https://tudominio.cu/img/og-cover.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+
     <!-- Font Awesome (íconos) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=0.7" />
+    <link rel="stylesheet" href="style.css?v=0.9" />
 </head>
 <body>
 
@@ -21,10 +44,13 @@
         <div class="container">
             <h1>Calistenia en Cuba</h1>
             <p class="subtitle">Asociación Nacional</p>
-            <nav class="nav">
+            <nav class="nav" aria-label="Navegación principal">
                 <a href="#espacios">Espacios</a>
-                <a href="#equipo">Equipo</a>
                 <a href="#eventos">Eventos</a>
+                <a href="#equipo">Equipo</a>
+                <a href="#unete" class="btn-nav btn-nav-whatsapp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> Únete
+                </a>
             </nav>
         </div>
     </header>
@@ -44,116 +70,165 @@
         <div class="container">
             <h2 class="section-title">Espacios</h2>
             <p class="section-description">Descubre los lugares donde entrenamos en toda Cuba</p>
-            
+
             <div class="spaces-grid">
-                <!-- Espacio 1 - SIN borde rojo y SIN etiqueta "Destacado" -->
+
+                <!-- Espacio 1 -->
                 <div class="space-card">
                     <div class="space-icon">
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-dumbbell" aria-hidden="true"></i>
                     </div>
-                    <h3>Villa Clara · Santa Clara</h3>
-                    <p class="space-location"><i class="fas fa-map-marker-alt"></i> Manuelita</p>
-                    <p class="space-desc">Espacio al aire libre con barras y zona de suelo para entrenamientos.</p>
+                    <h3>Manuelita</h3>
+                    <p class="space-location">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Santa Clara · Villa Clara
+                    </p>
+                    <p class="space-desc">
+                        Parque al aire libre con barra fija alta, paralelas y zona de suelo. Sombra parcial.
+                    </p>
                     <div class="space-tags">
-                        <span class="tag">Barras</span>
+                        <span class="tag">Barra alta</span>
+                        <span class="tag">Paralelas</span>
                         <span class="tag">Suelo</span>
                     </div>
+                    <div class="space-meta">
+                        <span><i class="fas fa-clock" aria-hidden="true"></i> 6:00–9:00 AM · 5:00–7:30 PM</span>
+                        <span><i class="fas fa-signal" aria-hidden="true"></i> Todos los niveles</span>
+                    </div>
+                    <a class="btn-event" href="https://wa.me/5350000000" target="_blank" rel="noopener">
+                        Contactar <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
                 </div>
-                <!-- Puedes añadir más espacios aquí -->
-            </div>
 
+                <!-- Aquí puedes añadir más espacios -->
+
+            </div>
         </div>
-    </section>   
+    </section>
 
     <!-- ===== EVENTOS ===== -->
     <section class="section" id="eventos">
         <div class="container">
             <h2 class="section-title">Eventos</h2>
             <p class="section-description">Próximas actividades y encuentros</p>
-            
+
             <div class="events-grid">
-                <!-- Evento 1 - SIN borde rojo y SIN etiqueta "★ Próximo" -->
+
+                <!-- Evento 1 -->
                 <div class="event-card">
                     <div class="event-card-header">
                         <span class="event-card-date">
                             <span class="day">31</span>
                             <span class="month">DIC</span>
                         </span>
-                        <!--<span class="badge abierto">Abierto</span>-->
+                        <span class="badge abierto">Abierto</span>
                     </div>
                     <h3>Encuentro Villa Clara</h3>
-                    <p class="event-card-desc">Encuentro</p>
+                    <p class="event-card-desc">
+                        Entrenamiento grupal abierto: calentamiento, progresiones de dominadas
+                        y trabajo libre en barras y paralelas.
+                    </p>
                     <div class="event-card-footer">
-                        <span class="event-location"><i class="fas fa-map-marker-alt"></i> Santa Clara · Reparto José Martí</span>
-                        <span class="event-time"><i class="fas fa-clock"></i> 10:00 AM</span>
+                        <span class="event-location">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Santa Clara · Reparto José Martí
+                        </span>
+                        <span class="event-time">
+                            <i class="fas fa-clock" aria-hidden="true"></i> 10:00 AM
+                        </span>
                     </div>
+                    <a class="btn-event" href="https://wa.me/5350000000" target="_blank" rel="noopener">
+                        Más info <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
                 </div>
 
+                <!-- Aquí puedes añadir más eventos -->
+
+            </div>
         </div>
     </section>
 
     <!-- ===== EQUIPO ===== -->
-<section class="section" id="equipo">
-    <div class="container">
-        <h2 class="section-title">Equipo</h2>
-        
-        <!-- ===== DESARROLLADORES ===== -->
-        <div class="team-group">
-            <h3 class="team-subtitle">Desarrolladores</h3>
-            <div class="team-grid developers-grid">
-                <div class="member">
-                    <div class="avatar">
-                        <img src="img/hero.png" alt="Erit - PO Web" />
-                    </div>
-                    <p class="name">Erit</p>
-                    <p class="role">Product Owner</p>
-                </div>
-                <!-- Aquí puedes añadir más desarrolladores -->
-            </div>
-        </div>
+    <section class="section" id="equipo">
+        <div class="container">
+            <h2 class="section-title">Equipo</h2>
 
-        <!-- ===== ENTRENADORES ===== -->
-        <div class="team-group">
-            <h3 class="team-subtitle">Entrenadores</h3>
-            <div class="team-grid trainers-grid">
-                <div class="member">
-                    <div class="avatar">
-                        <img src="https://ui-avatars.com/api/?name=Fulanito&size=80&background=d42e4b&color=fff&bold=true" alt="Fulanito" />
+            <!-- ===== DESARROLLADORES ===== -->
+            <div class="team-group">
+                <h3 class="team-subtitle">Desarrolladores</h3>
+                <div class="team-grid developers-grid">
+                    <div class="member">
+                        <div class="avatar">
+                            <img src="img/hero.png" alt="Erit, Product Owner del sitio web" />
+                        </div>
+                        <p class="name">Erit</p>
+                        <p class="role">Product Owner</p>
                     </div>
-                    <p class="name">Fulanito</p>
-                    <p class="role">Front Lever</p>
-                </div>
-
-                <div class="member">
-                    <div class="avatar">
-                        <img src="https://ui-avatars.com/api/?name=Menganito&size=80&background=d42e4b&color=fff&bold=true" alt="Menganito" />
-                    </div>
-                    <p class="name">Menganito</p>
-                    <p class="role">Full Planche</p>
-                </div>
-
-                <div class="member">
-                    <div class="avatar">
-                        <img src="https://ui-avatars.com/api/?name=Esperanzito&size=80&background=d42e4b&color=fff&bold=true" alt="Esperanzito" />
-                    </div>
-                    <p class="name">Esperanzito</p>
-                    <p class="role">Handstand</p>
+                    <!-- Aquí puedes añadir más desarrolladores -->
                 </div>
             </div>
+
+            <!-- ===== ENTRENADORES ===== -->
+            <div class="team-group">
+                <h3 class="team-subtitle">Entrenadores</h3>
+                <div class="team-grid trainers-grid">
+                    <div class="member">
+                        <div class="avatar">
+                            <img src="https://ui-avatars.com/api/?name=Fulanito&size=80&background=d42e4b&color=fff&bold=true" alt="Fulanito, entrenador de Front Lever" />
+                        </div>
+                        <p class="name">Fulanito</p>
+                        <p class="role">Front Lever</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="avatar">
+                            <img src="https://ui-avatars.com/api/?name=Menganito&size=80&background=d42e4b&color=fff&bold=true" alt="Menganito, entrenador de Full Planche" />
+                        </div>
+                        <p class="name">Menganito</p>
+                        <p class="role">Full Planche</p>
+                    </div>
+
+                    <div class="member">
+                        <div class="avatar">
+                            <img src="https://ui-avatars.com/api/?name=Esperanzito&size=80&background=d42e4b&color=fff&bold=true" alt="Esperanzito, entrenador de Handstand" />
+                        </div>
+                        <p class="name">Esperanzito</p>
+                        <p class="role">Handstand</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+
+    <!-- ===== ÚNETE ===== -->
+    <section class="section" id="unete">
+        <div class="container">
+            <h2 class="section-title">Únete</h2>
+            <p class="section-description">
+                ¿Entrenas en la calle? ¿Tienes un espacio que debería estar aquí?
+                Escríbenos y forma parte de la Asociación.
+            </p>
+
+            <div class="join-actions">
+                <a class="btn-add-large whatsapp" href="https://wa.me/5350000000" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+                </a>
+            </div>
+
+            <p class="text-muted">
+                Registrar un espacio es gratis. Solo necesitamos fotos, ubicación y horarios de entrenamiento.
+            </p>
+        </div>
+    </section>
+
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="socials">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-telegram-plane"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Telegram" target="_blank" rel="noopener"><i class="fab fa-telegram-plane" aria-hidden="true"></i></a>
+                <a href="https://wa.me/5350000000" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
             </div>
-            <p class="footer-text">Streetworkout & Calistenia · Cuba</p>
+            <p class="footer-text">Streetworkout &amp; Calistenia · Cuba</p>
             <p class="footer-small">Hecho en la calle · para la comunidad de Cuba</p>
         </div>
     </footer>
