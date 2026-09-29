@@ -1,31 +1,30 @@
 /* =========================================================
    COACH.JS
    Datos + lógica de la página individual del entrenador.
-   Añadir un entrenador = añadir un objeto a COACHES.
    ========================================================= */
 
 const COACHES = {
   1: {
-    nombre: 'Ricardo Suárez',
+    nombre: 'Ricardo Suarez',
     rol: 'Entrenador de Calistenia',
     ubicacion: 'La Habana',
-    bio: 'Más de 8 años entrenando calistenia en las calles de La Habana. Especialista en progresiones de fuerza y técnica de barras. Fundador del grupo de entrenamiento del Parque Almendares.',
-    especialidades: ['Dominadas', 'Muscle Up', 'Fuerza básica', 'Front Lever'],
+    bio: 'Mas de 8 anios entrenando calistenia en las calles de La Habana. Especialista en progresiones de fuerza y tecnica de barras. Fundador del grupo de entrenamiento del Parque Almendares.',
+    especialidades: ['Dominadas', 'Muscle Up', 'Fuerza basica', 'Front Lever'],
     stats: {
-      experiencia: '8 años',
+      experiencia: '8 anios',
       alumnos: '120+',
       eventos: '25'
     }
   },
 
   2: {
-    nombre: 'Laura Martínez',
+    nombre: 'Laura Martinez',
     rol: 'Entrenadora de Calistenia',
     ubicacion: 'Villa Clara',
     bio: 'Entrenadora certificada y competidora nacional. Enfocada en calistenia femenina, movilidad y acondicionamiento general. Lidera el grupo de entrenamiento del Parque Vidal.',
     especialidades: ['Movilidad', 'Calistenia femenina', 'Handstand', 'Core'],
     stats: {
-      experiencia: '5 años',
+      experiencia: '5 anios',
       alumnos: '80+',
       eventos: '15'
     }
@@ -35,10 +34,10 @@ const COACHES = {
     nombre: 'Daniel Rojas',
     rol: 'Entrenador de Streetworkout',
     ubicacion: 'Santiago de Cuba',
-    bio: 'Atleta y entrenador de streetworkout. Especializado en freestyle, trucos y dinámicos. Representante de la asociación en la región oriental.',
-    especialidades: ['Freestyle', 'Dinámicos', 'Bar Muscle Up', 'Trucos'],
+    bio: 'Atleta y entrenador de streetworkout. Especializado en freestyle, trucos y dinamicos. Representante de la asociacion en la region oriental.',
+    especialidades: ['Freestyle', 'Dinamicos', 'Bar Muscle Up', 'Trucos'],
     stats: {
-      experiencia: '6 años',
+      experiencia: '6 anios',
       alumnos: '95+',
       eventos: '20'
     }
@@ -47,35 +46,41 @@ const COACHES = {
   4: {
     nombre: 'Yusimi Castillo',
     rol: 'Entrenadora de Calistenia',
-    ubicacion: 'Camagüey',
-    bio: 'Entrenadora enfocada en iniciación y prevención de lesiones. Trabaja con grupos mixtos de todos los niveles y organiza clínicas de técnica básica.',
-    especialidades: ['Iniciación', 'Técnica básica', 'Prevención de lesiones', 'Flexibilidad'],
+    ubicacion: 'Camaguey',
+    bio: 'Entrenadora enfocada en iniciacion y prevencion de lesiones. Trabaja con grupos mixtos de todos los niveles y organiza clinicas de tecnica basica.',
+    especialidades: ['Iniciacion', 'Tecnica basica', 'Prevencion de lesiones', 'Flexibilidad'],
     stats: {
-      experiencia: '4 años',
+      experiencia: '4 anios',
       alumnos: '60+',
       eventos: '12'
     }
   }
 };
 
-/* ---------- Lógica de render ---------- */
+/* ---------- Logica de render ---------- */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('coach.js cargado OK');
+
   const container = document.getElementById('coach-content');
-  if (!container) return;
+  if (!container) {
+    console.warn('No se encontro #coach-content');
+    return;
+  }
 
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id');
+  console.log('ID recibido:', id);
+
   const coach = id && COACHES[id];
+  console.log('Coach encontrado:', coach);
 
   if (!coach) {
     container.innerHTML = renderError();
     return;
   }
 
-  // Actualizamos el título de la pestaña
-  document.title = `${coach.nombre} · Calistenia en Cuba`;
-
+  document.title = coach.nombre + ' - Calistenia en Cuba';
   container.innerHTML = renderCoach(coach);
 });
 
@@ -83,13 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function renderCoach(coach) {
   const inicial = coach.nombre.trim().charAt(0).toUpperCase();
+  const primerNombre = coach.nombre.split(' ')[0];
 
-  const especialidadesHTML = coach.especialidades
-    .map(e => `<li class="tag">${e}</li>`)
-    .join('');
+  let especialidadesHTML = '';
+  for (let i = 0; i < coach.especialidades.length; i++) {
+    especialidadesHTML += '<li class="tag">' + coach.especialidades[i] + '</li>';
+  }
 
   const mensaje = encodeURIComponent(
-    `Hola ${coach.nombre.split(' ')[0]}, quiero información sobre tus entrenamientos.`
+    'Hola ' + primerNombre + ', quiero informacion sobre tus entrenamientos.'
   );
 
   return `
@@ -137,7 +144,7 @@ function renderCoach(coach) {
          class="btn btn-primary btn-lg"
          target="_blank" rel="noopener">
         <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-        Contactar a ${coach.nombre.split(' ')[0]}
+        Contactar a ${primerNombre}
       </a>
     </div>
   `;
