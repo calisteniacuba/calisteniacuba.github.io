@@ -887,6 +887,163 @@ p { color: var(--color-text); }
 }
 
 /* =========================================================
+   FASE 6 — SECCIÓN ÚNETE + PULIDO FINAL
+   ========================================================= */
+
+/* ---------- Sección Únete ---------- */
+.unete {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Detalle decorativo sutil */
+.unete::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(255,255,255,0.10) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.unete-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+}
+
+.unete .section-title {
+  color: var(--color-white);
+}
+
+.unete .section-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 520px;
+}
+
+.unete-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.75rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+  backdrop-filter: blur(4px);
+}
+
+/* Botón sobre fondo rojo → invertido a blanco */
+.unete .btn-primary {
+  background: var(--color-white);
+  color: var(--color-primary);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.unete .btn-primary:hover {
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.unete-nota {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: var(--space-2);
+}
+
+/* ---------- Pulido: espaciado vertical consistente ---------- */
+.section {
+  padding: var(--space-8) 0;
+}
+
+/* ---------- Pulido: focus accesible (teclado) ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.unete a:focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* ---------- Pulido: selección de texto ---------- */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ---------- Pulido: scrollbar sutil (solo desktop) ---------- */
+@media (min-width: 900px) {
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--color-bg-soft);
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #c8c8cc;
+    border-radius: var(--radius-full);
+  }
+  body::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+}
+
+/* ---------- Pulido: animación sutil de entrada por sección ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-header,
+.cards-grid {
+  animation: fadeUp 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Pulido: ajustes finos en desktop ---------- */
+@media (min-width: 900px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+
+  .equipo-bloque {
+    margin-bottom: var(--space-8);
+  }
+}
+
+/* =========================================================
    11. MEDIA QUERIES (mobile-first → escalamos)
    ========================================================= */
 
