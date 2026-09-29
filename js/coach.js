@@ -5,14 +5,17 @@
 
 const COACHES = {
   1: {
-    nombre: 'Fulanito',
-    rol: 'Entrenador de Calistenia',
-    ubicacion: 'La Habana',
-    bio: '',
-    especialidades: ['', '', '', 'Front Lever'],
-    stats: {
+  nombre: 'Fulanito',
+  rol: 'Entrenador de Calistenia',
+  ubicacion: 'La Habana',
+  bio: '',
+  especialidades: ['', '', '', 'Front Lever'],
+  stats: {
     experiencia: '',
-    alumnos: ''
+    alumnos: '',
+    eventos: ''
+  }
+}
    
 };
 
