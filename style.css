@@ -579,6 +579,160 @@ p { color: var(--color-text); }
 }
 
 /* =========================================================
+   FASE 5 — SECCIÓN EQUIPO
+   ========================================================= */
+
+.equipo {
+  background: var(--color-bg);
+}
+
+/* Bloques (devs / entrenadores) */
+.equipo-bloque {
+  margin-bottom: var(--space-7);
+}
+
+.equipo-bloque:last-child {
+  margin-bottom: 0;
+}
+
+.equipo-subtitulo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary-soft);
+  color: var(--color-text);
+}
+
+.equipo-subtitulo i {
+  color: var(--color-primary);
+  font-size: var(--fs-lg);
+}
+
+/* Tarjetas de persona */
+.persona-card .card-body {
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+}
+
+.persona-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+  box-shadow: 0 6px 18px rgba(212, 46, 75, 0.28);
+}
+
+.persona-nombre {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.persona-rol {
+  font-size: var(--fs-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.persona-desc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Tarjetas de desarrollador: más sobrias */
+.persona-dev {
+  background: var(--color-bg-soft);
+  border-color: transparent;
+}
+
+.persona-dev:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: transparent;
+}
+
+.persona-dev .persona-avatar {
+  background: #2b2b2b;
+  box-shadow: none;
+}
+
+.persona-dev .persona-rol {
+  color: var(--color-text-muted);
+}
+
+/* Tarjetas de entrenador: clicables, con acento */
+.persona-coach {
+  cursor: pointer;
+  position: relative;
+  border-color: var(--color-border);
+}
+
+.persona-coach:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.persona-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: gap var(--t-fast);
+}
+
+.persona-coach:hover .persona-link {
+  gap: var(--space-3);
+}
+
+.persona-link i {
+  font-size: var(--fs-xs);
+  transition: transform var(--t-fast);
+}
+
+.persona-coach:hover .persona-link i {
+  transform: translateX(3px);
+}
+
+/* Grid específico del equipo */
+@media (min-width: 640px) {
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .equipo-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Si solo hay 2 devs, que no se estiren a 4 columnas */
+  .persona-dev + .persona-dev ~ .persona-dev { /* nada, placeholder */ }
+
+  #desarrolladores .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 560px;
+  }
+}
+
+/* =========================================================
    11. MEDIA QUERIES (mobile-first → escalamos)
    ========================================================= */
 
