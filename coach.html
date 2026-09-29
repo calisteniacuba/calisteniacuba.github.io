@@ -1,36 +1,282 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#d42e4b" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Perfil del Entrenador · Calistenia en Cuba</title>
-    <meta name="description" content="Conoce a los entrenadores de la Asociación Nacional de Streetworkout y Calistenia de Cuba." />
+  <title>Perfil del entrenador · Calistenia en Cuba</title>
+  <meta name="description" content="Perfil de entrenador de la Asociación Nacional de Streetworkout y Calistenia de Cuba.">
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/favicon.png" type="image/png" />
+  <link rel="icon" type="image/png" href="img/favicon.png">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- CSS base (el mismo de tu sitio) -->
-    <link rel="stylesheet" href="style.css?v=0.9" />
-    <!-- CSS específico del perfil -->
-    <link rel="stylesheet" href="coach.css" />
+  <!-- Estilos globales (reutilizados de la home) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Estilos específicos de esta página -->
+  <style>
+    /* ============ COACH PAGE ============ */
+
+    .coach-main {
+      padding: var(--space-7) 0 var(--space-8);
+      background: var(--color-bg);
+    }
+
+    .coach-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-5);
+      transition: color var(--t-fast), gap var(--t-fast);
+    }
+    .coach-volver:hover {
+      color: var(--color-primary);
+      gap: var(--space-3);
+    }
+
+    /* Cabecera del perfil */
+    .coach-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-3);
+      padding: var(--space-6) var(--space-5);
+      background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-bg) 100%);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-6);
+    }
+
+    .coach-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 110px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      color: var(--color-white);
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      box-shadow: 0 10px 30px rgba(212, 46, 75, 0.30);
+    }
+
+    .coach-nombre {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .coach-rol {
+      font-size: var(--fs-base);
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    .coach-ubicacion {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+    }
+    .coach-ubicacion i { color: var(--color-primary); }
+
+    /* Bloque de bio */
+    .coach-bio {
+      font-size: var(--fs-base);
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+      text-align: center;
+      max-width: 640px;
+      margin-inline: auto;
+    }
+
+    /* Grid de datos: especialidades + stats + contacto */
+    .coach-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-bottom: var(--space-6);
+    }
+
+    .coach-bloque {
+      background: var(--color-bg-soft);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+    }
+
+    .coach-bloque h3 {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+    }
+    .coach-bloque h3 i { color: var(--color-primary); }
+
+    /* Especialidades como tags */
+    .coach-especialidades {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    /* Stats en fila */
+    .coach-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+      text-align: center;
+    }
+
+    .coach-stat {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .coach-stat strong {
+      font-size: var(--fs-xl);
+      font-weight: 800;
+      color: var(--color-primary);
+    }
+
+    .coach-stat span {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* CTA WhatsApp */
+    .coach-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: var(--space-5);
+    }
+
+    /* Estado de error / cargando */
+    .coach-estado {
+      text-align: center;
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .coach-estado i {
+      font-size: 3rem;
+      color: var(--color-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    .coach-estado h2 {
+      margin-bottom: var(--space-3);
+    }
+
+    .coach-estado p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-5);
+    }
+
+    /* Ajustes desktop */
+    @media (min-width: 640px) {
+      .coach-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .coach-bloque.coach-bloque-full {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
 </head>
-<body class="coach-body">
+<body>
 
-    <main class="coach-page" id="coachContainer">
-        <!-- El contenido se rellena con coach.js -->
-    </main>
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
 
-    <script src="js/coaches-data.js"></script>
-    <script src="js/coach.js"></script>
+      <a href="index.html" class="brand" aria-label="Inicio">
+        <span class="brand-title">Calistenia en Cuba</span>
+        <span class="brand-subtitle">Asociación Nacional de Streetworkout</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html#espacios">Espacios</a></li>
+          <li><a href="index.html#eventos">Eventos</a></li>
+          <li><a href="index.html#equipo">Equipo</a></li>
+          <li><a href="index.html#unete">Únete</a></li>
+        </ul>
+      </nav>
+
+      <a href="https://wa.me/5359638868"
+         class="btn btn-primary header-cta"
+         target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        Únete
+      </a>
+
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="coach-main">
+    <div class="container">
+
+      <a href="index.html#entrenadores" class="coach-volver">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        Volver al equipo
+      </a>
+
+      <!-- Aquí se inyecta el contenido del coach vía JS -->
+      <div id="coach-content">
+        <!-- Placeholder mientras carga -->
+        <div class="coach-estado">
+          <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
+          <h2>Cargando perfil…</h2>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-redes">
+        <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+          <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a href="https://wa.me/5359638868" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <p class="footer-firma">
+        &copy; 2025 Calistenia en Cuba · Asociación Nacional de Streetworkout
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- Lógica + datos del coach -->
+  <script src="js/coach.js"></script>
+
 </body>
 </html>
