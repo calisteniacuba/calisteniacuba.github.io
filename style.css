@@ -398,6 +398,79 @@ p { color: var(--color-text); }
 }
 
 /* =========================================================
+   FASE 3 — SECCIÓN ESPACIOS
+   ========================================================= */
+
+.espacios {
+  background: var(--color-bg);
+}
+
+.espacio-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera visual con icono y color de fondo */
+.espacio-media {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 2.75rem;
+  overflow: hidden;
+}
+
+/* Detalle decorativo sutil */
+.espacio-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.10) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.espacio-media i {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+}
+
+/* Badge sobre la cabecera */
+.espacio-badge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-primary);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Ajustes finos del cuerpo de la tarjeta */
+.espacio-card .card-title {
+  font-size: var(--fs-lg);
+}
+
+.espacio-card .card-description {
+  min-height: 2.6em; /* alinea visualmente las tarjetas entre sí */
+}
+
+/* Botón de contacto al fondo, ocupa todo el ancho del body */
+.espacio-card .btn {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+}
+
+/* =========================================================
    11. MEDIA QUERIES (mobile-first → escalamos)
    ========================================================= */
 
