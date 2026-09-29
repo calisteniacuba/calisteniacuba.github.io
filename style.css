@@ -471,6 +471,114 @@ p { color: var(--color-text); }
 }
 
 /* =========================================================
+   FASE 4 — SECCIÓN EVENTOS
+   ========================================================= */
+
+.eventos {
+  background: var(--color-bg-soft);
+}
+
+.evento-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera con fecha destacada + estado */
+.evento-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+}
+
+/* Bloque de fecha estilo calendario */
+.evento-fecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-4);
+  backdrop-filter: blur(4px);
+  line-height: 1;
+}
+
+.evento-dia {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.evento-mes {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+/* Badges de estado */
+.evento-estado {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.estado-proximo {
+  background: #ffffff;
+  color: var(--color-primary);
+}
+
+.estado-mes {
+  background: #ffe9c2;
+  color: #9a5b00;
+}
+
+.estado-pasado {
+  background: rgba(255, 255, 255, 0.85);
+  color: #555;
+}
+
+/* Tarjeta finalizada: atenuada */
+.evento-pasado {
+  opacity: 0.85;
+}
+
+.evento-pasado .card-title {
+  color: var(--color-text-muted);
+}
+
+/* Ajuste fino del body */
+.evento-card .card-description {
+  min-height: 3.4em;
+}
+
+.evento-card .btn {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+}
+
+/* Ajuste de grid: 3 eventos → 3 columnas en desktop está bien,
+   pero limitamos el ancho para que no se estiren demasiado */
+@media (min-width: 900px) {
+  .eventos-grid {
+    max-width: 1040px;
+    margin-inline: auto;
+  }
+}
+
+/* =========================================================
    11. MEDIA QUERIES (mobile-first → escalamos)
    ========================================================= */
 
